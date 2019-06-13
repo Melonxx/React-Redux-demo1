@@ -30,12 +30,17 @@ const mapStateToProps = (state /*, ownProps*/) => {
   }
 }
 
-const mapDispatchToProps = {
-  add: () => {
-    return {
-      type: 'add',
-      payload: 1
-    }
+// const mapDispatchToProps = {
+//   add: () => {
+//     return {
+//       type: 'add',
+//       payload: 1
+//     }
+//   }
+// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    add: () => dispatch({type: 'add', payload: 1})
   }
 }
 
