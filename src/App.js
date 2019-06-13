@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
+import store from './store'
 
 class App extends Component {
   constructor () {
@@ -13,12 +14,15 @@ class App extends Component {
     this.setState((state) => ({
       n: ++state.n
     }))
+    store.dispatch({type: 'add', payload: 22})
   }
   render () {
     return (
       <div>
-        {this.props.n}
-        <input value="增加" onClick={() => {this.props.add()}} type="button" />
+        {/* {this.props.n} */}
+        <p>aaa</p>
+        {this.props.value.n}
+        <input value="增加" onClick={() => {this.add()}} type="button" />
       </div>
     )
   }
@@ -44,4 +48,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
