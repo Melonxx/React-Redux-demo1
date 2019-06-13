@@ -19,10 +19,10 @@ class App extends Component {
   render () {
     return (
       <div>
-        {/* {this.props.n} */}
-        <p>aaa</p>
-        {this.props.value.n}
-        <input value="增加" onClick={() => {this.add()}} type="button" />
+        {this.props.n}
+        {/* {this.props.value.n} */}
+        <input value="增加" onClick={() => {this.props.add()}} type="button" />
+        {/* <input value="增加" onClick={() => {this.add()}} type="button" /> */}
       </div>
     )
   }
@@ -44,9 +44,9 @@ const mapStateToProps = (state /*, ownProps*/) => {
 // }
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: () => dispatch({type: 'add', payload: 1})
+    add: () => dispatch({type: 'add', payload: 2})
   }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default App;
